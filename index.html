@@ -4,11 +4,479 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Junha Yang</title>
+  <title>Junha Yang - Homepage</title>
+  <style>
+    body {
+      background: #ffffff;
+      color: #000000;
+      font-family: "Times New Roman", Times, serif;
+      font-size: 14px;
+      max-width: 760px;
+      margin: 20px auto;
+      padding: 0 16px;
+      line-height: 1.5;
+    }
+
+    h1 {
+      font-size: 28px;
+      font-weight: bold;
+      border-bottom: 3px double #000;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: bold;
+      background: #000;
+      color: #fff;
+      padding: 3px 8px;
+      margin-top: 28px;
+      margin-bottom: 10px;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    h3 {
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    p,
+    li {
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 6px 0 10px 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin-bottom: 4px;
+    }
+
+    hr {
+      border: 0;
+      border-top: 1px dashed #000;
+      margin: 18px 0;
+    }
+
+    a {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: #555;
+    }
+
+    a:hover {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    code,
+    tt {
+      font-family: "Courier New", Courier, monospace;
+      background: #eeeeee;
+      padding: 1px 3px;
+      border: 1px solid #999;
+    }
+
+    em,
+    i {
+      font-style: italic;
+    }
+
+    strong,
+    b {
+      font-weight: bold;
+    }
+
+    .tagline {
+      text-align: center;
+      font-style: italic;
+      margin-bottom: 12px;
+    }
+
+    .intro {
+      border: 1px solid #000;
+      padding: 10px 14px;
+      background: #f4f4f4;
+      margin-bottom: 18px;
+    }
+
+    .career-block {
+      border-left: 3px solid #000;
+      padding-left: 10px;
+      margin-bottom: 16px;
+    }
+
+    .footer {
+      border-top: 1px solid #000;
+      margin-top: 30px;
+      padding-top: 8px;
+      text-align: center;
+      font-size: 11px;
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    .nav {
+      text-align: center;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      margin-bottom: 12px;
+    }
+
+    .nav a {
+      margin: 0 4px;
+    }
+
+    .site-nav {
+      font-family: "Courier New", Courier, monospace;
+      font-size: 12px;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed #000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a,
+    .site-nav button {
+      color: #000;
+      text-decoration: underline;
+      margin: 0 4px;
+    }
+
+    .site-nav button {
+      font-family: inherit;
+      font-size: inherit;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    .site-nav button:hover {
+      background: #000;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    #copy-md-status {
+      font-style: italic;
+      color: #333;
+    }
+
+    .contact-list {
+      column-count: 2;
+      column-gap: 24px;
+    }
+
+    .contact-list li {
+      break-inside: avoid;
+    }
+
+    .talks-list {
+      display: grid;
+      grid-template-columns: max-content 1fr;
+      column-gap: 12px;
+      row-gap: 4px;
+      margin: 6px 0 10px 0;
+    }
+
+    .talks-list dt {
+      font-weight: bold;
+      grid-column: 1;
+    }
+
+    .talks-list dd {
+      grid-column: 2;
+      margin: 0;
+    }
+
+    @page {
+      margin: 1.5cm;
+    }
+
+    @media print {
+      body {
+        max-width: none;
+        margin: 0;
+        padding: 0;
+        font-size: 11pt;
+        line-height: 1.4;
+      }
+
+      a,
+      a:visited {
+        color: #000;
+        text-decoration: underline;
+      }
+
+      a:hover {
+        background: transparent;
+        color: #000;
+        text-decoration: underline;
+      }
+
+      h2 {
+        page-break-after: avoid;
+      }
+
+      h3 {
+        page-break-after: avoid;
+      }
+
+      .career-block,
+      li,
+      ul {
+        page-break-inside: avoid;
+      }
+
+      .nav,
+      .site-nav {
+        display: none;
+      }
+
+      .footer {
+        page-break-before: avoid;
+      }
+    }
+  </style>
 </head>
 
 <body>
-  <h1>Hello, world</h1>
+
+  <div class="site-nav">
+    <span>
+      [ <a href="/blog">Blog</a> |
+      <a href="/casual">Casual</a> ]
+    </span>
+    <span>
+      <button type="button" id="copy-md-btn">Copy as Markdown</button>
+      <span id="copy-md-status"></span>
+    </span>
+  </div>
+
+  <h1>Junha Yang</h1>
+  <p class="tagline">Systems Engineer / CTO / CISO with frontline DPRK threat experience</p>
+
+  <div class="nav">
+    [ <a href="#contact">Contact</a> |
+    <a href="#specialty">Specialty</a> |
+    <a href="#career">Career</a> |
+    <a href="#education">Education</a> |
+    <a href="#projects">Projects</a> |
+    <a href="#talks">Talks &amp; Writing</a> |
+    <a href="#awards">Awards</a> ]
+  </div>
+
+  <div class="intro">
+    <p>Held company-level authority over both technical and security risk for a 60+ person regulated crypto trading firm
+    ($500M+ in self-custodied assets), with hands-on response to DPRK-linked threat activity (e.g., APT, sophisticated
+    phishing, physical threat) on the other side of the controls.</p>
+    <ul>
+      <li>Made security decisions as engineering decisions: architecture, controls, infra, process, with constant
+        trade-offs between shipping speed and risk, and immediate financial consequences for every mistake.</li>
+      <li>Drove company-wide adoption of AI coding agents in early 2024, before Claude Code was released; built secretless
+        infrastructure across the organization as the baseline for agent security.</li>
+    </ul>
+  </div>
+
+  <h2 id="contact">&raquo; Contact</h2>
+  <ul class="contact-list">
+    <li>Email: <a href="mailto:junhayang1@gmail.com"><code>junhayang1@gmail.com</code></a></li>
+    <li>Homepage: <a href="https://junha1.github.io/">https://junha1.github.io/</a></li>
+    <li>Telegram: <a href="https://t.me/junha1">@junha1</a></li>
+    <li>LinkedIn: <a href="https://www.linkedin.com/in/junha-y-5923061b6/">Junha Yang</a></li>
+    <li>Github: <a href="https://github.com/junha1">junha1</a></li>
+  </ul>
+
+  <hr>
+
+  <h2 id="specialty">&raquo; Specialty</h2>
+  <ul>
+    <li>Rust</li>
+    <li>Consensus Algorithm</li>
+    <li>Defensive Security</li>
+    <li>Crypto Custody</li>
+    <li>System Programming</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="career">&raquo; Career</h2>
+
+  <div class="career-block">
+    <h3>2023&ndash;2026 | CTO &amp; CISO, <a href="https://www.hyperithm.com/">Hyperithm</a> (regulated crypto trading firm, 60+ people)</h3>
+    <p><em>Security ownership (CISO)</em></p>
+    <ul>
+      <li>Held ultimate authority over corporate security risk and internal controls ($500M+ in self-custodied assets and 10k+
+        wallets/exchange accounts behind them), and personally owned SecOps day-to-day.</li>
+      <li>Designed and operated the full security stack greenfield: MPC wallet and custody architecture, transaction
+        filtering, EDR, enterprise browser, IAM, password manager, DLP, MDM, CNAPP, VPN, and physical security.</li>
+      <li>Led 3 ISMS (Korean equivalent of ISO 27001) certification cycles as principal owner; maintained direct working relationship with Korea's
+        financial regulator (FSC/FSS) on audits and ongoing license obligations.</li>
+      <li>Maintained an APT-aware security posture under active nation-state targeting; zero breaches during tenure.
+      </li>
+    </ul>
+    <p><em>Engineering leadership (CTO)</em></p>
+    <ul>
+      <li>Led a 15-person engineering team; owned hiring, architecture, and infrastructure operations end-to-end.</li>
+      <li>Designed and operated a cloud platform hosting 100+ trading strategies with strong isolation, reliability, and
+        deploy safety guarantees.</li>
+      <li>Operated low-latency network infrastructure for high-frequency trading.</li>
+      <li>Ran platform engineering with trader productivity as an explicit KPI.</li>
+      <li>Embedded AI coding agents into daily engineering practice across the org; built the secretless infrastructure
+        that made agent-augmented workflows safe under live adversarial pressure.</li>
+    </ul>
+  </div>
+
+  <div class="career-block">
+    <h3>2022&ndash;Present | Founder / Advisor, <a href="https://dao.postech.ac.kr/">PDAO</a> (non-profit open-source DAO infrastructure community)</h3>
+    <ul>
+      <li>Founded and led through 2023, then stepped back to an advisory role to complete degree. Community remains
+        active (50+ core contributors at peak, 400+ members).</li>
+      <li>Developed and deployed Simperby, a trustless governance protocol for DAOs.</li>
+      <li>Selected as an official open-source project by Korea's Ministry of Science and ICT (OSSCA 2023, Open Source Software Contribution Academy).</li>
+      <li>Organized 10+ offline meetups and networking events.</li>
+    </ul>
+  </div>
+
+  <div class="career-block">
+    <h3>2021&ndash;2022 | Head of Infrastructure, <a href="https://www.hyperithm.com/">Hyperithm</a></h3>
+    <ul>
+      <li>Built high-performance market data servers and trade execution engines.</li>
+      <li>Designed and operated sub-millisecond HFT strategies and the infrastructure beneath them.</li>
+    </ul>
+  </div>
+
+  <div class="career-block">
+    <h3>2019&ndash;2021 | Software Engineer, <a href="https://zuzu.network/">Kodebox</a> (Upbit subsidiary)</h3>
+    <ul>
+      <li>Research and development on blockchain consensus algorithms.</li>
+      <li>Core maintainer of an open-source Rust blockchain project.</li>
+      <li>Designed and implemented a trustless cross-chain communication protocol.</li>
+    </ul>
+  </div>
+
+  <div class="career-block">
+    <h3>2018 | AI Researcher, <a href="https://netmarble.com/">Netmarble</a> (major Korean mobile game publisher)</h3>
+    <ul>
+      <li>Evaluated machine learning techniques for in-game fraud detection.</li>
+    </ul>
+  </div>
+
+  <hr>
+
+  <h2 id="education">&raquo; Education</h2>
+  <p><strong>2016&ndash;2023 | POSTECH</strong></p>
+  <ul>
+    <li>B.S., Computer Science and Engineering</li>
+    <li>Summa Cum Laude (GPA 4.0 / 4.3)</li>
+    <li>One of Korea's top science and engineering universities (peer institutions: SNU, KAIST)</li>
+    <li>Timeline extended by mandatory military service</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="projects">&raquo; Selected Projects</h2>
+  <ul>
+    <li><strong><a href="https://github.com/postech-dao/simperby">Simperby</a>:</strong> A blockchain engine for DAOs.
+    </li>
+    <li><strong><a href="https://github.com/CodeChain-io/foundry">CodeChain Foundry</a>:</strong> Blockchain engine on
+      Tendermint + Rust, inspired by Cosmos SDK.</li>
+    <li><strong><a href="https://github.com/CodeChain-io/remote-trait-object">remote-trait-object</a>:</strong> Rust
+      remote method invocation via trait objects.</li>
+    <li><strong><a href="https://github.com/rsbm/fere">fere</a>:</strong> Realtime 3D rendering engine on OpenGL.</li>
+  </ul>
+
+  <hr>
+
+  <h2 id="talks">&raquo; Talks &amp; Writing</h2>
+  <dl class="talks-list">
+    <dt>2026</dt>
+    <dd>[PwC Investment Leadership Forum] Seeing the New World: Crypto &amp; AI [<a
+        href="https://docs.google.com/presentation/d/1UoZ8eXFKDCnQK2VLQwF8B4apy7S-OiJsaMteveWthp8/edit?slide=id.g36bd1584053_0_63#slide=id.g36bd1584053_0_63">Link</a>]</dd>
+    <dd>CTO Challenges [<a href="/blog/cto-challenges">Link</a>]</dd>
+
+    <dt>2025</dt>
+    <dd>[SNU Business Alumni] How Technology Changes the World: Blockchain &amp; Decentralization [<a
+        href="https://docs.google.com/presentation/d/1JCS3DpuiXw9pbe1AYBLF9P1GqYuM28fWwCbS2jfDWek/edit?usp=sharing">Link</a>]</dd>
+
+    <dt>2024</dt>
+    <dd>Panel, Ethcon Korea 2024 [<a href="https://2024.ethcon.kr/">Link</a>]</dd>
+    <dd>Speaker, Crypto United Trading Conference [<a href="https://lu.ma/jg1vpimt">Link</a>] [<a
+        href="https://docs.google.com/presentation/d/1iYd_cXJdAm77zsuI7cNLcnMsIJFRB8_5iISkScp6wh8/edit#slide=id.g2720ced5208_0_0">Slides</a>]</dd>
+
+    <dt>2023</dt>
+    <dd>Speaker, Web 3.0, Privacy &amp; Legal Review of DAO Operations [<a
+        href="https://event-us.kr/coindeskkorea/event/69558">Link</a>]</dd>
+    <dd>[PDAO Seminar] DAO &amp; Simperby [<a href="https://youtu.be/dZ8A0Sgq5Q8">Link</a>]</dd>
+
+    <dt>2022</dt>
+    <dd>[POSTECH Tech Review] Blockchain &amp; the Decentralized Future [<a
+        href="https://youtu.be/H1TYxoHzwTo">Link</a>]</dd>
+    <dd>[PDAO Seminar] PoS &amp; BFT [<a href="https://youtu.be/2rgHBIlfI7M">Link</a>]</dd>
+
+    <dt>2020</dt>
+    <dd>CodeChain Foundry [<a href="https://medium.com/codechain/codechain-foundry-8c6df5e08c82">Link</a>]</dd>
+    <dd>remote-trait-object: CodeChain Foundry's core inter-module communication systems [<a
+        href="https://medium.com/codechain/remote-trait-object-one-of-codechain-foundrys-core-inter-module-communication-systems-66879938b855">Link</a>]</dd>
+    <dd>CodeChain Foundry ICS Implementation [<a
+        href="https://medium.com/codechain/foundry-ics-poc-proof-of-concept-implementation-c92a8b4757da">Link</a>]</dd>
+    <dd>Blockchain Light Client [<a href="https://medium.com/codechain/blockchain-light-client-1171dfa1269a">Link</a>]</dd>
+  </dl>
+
+  <hr>
+
+  <h2 id="awards">&raquo; Awards &amp; Other Professional Activities</h2>
+  <ul>
+    <li><strong>2023</strong> | Lead mentor, OSSCA 2023 (Open Source Software Contribution Academy), Ministry of Science and ICT</li>
+    <li><strong>2022</strong> | Park Tae-joon Alumni Scholarship, POSTECHIAN Foundation</li>
+    <li><strong>2020</strong> | Contributor, Cosmos IBC protocol specification</li>
+    <li><strong>2015</strong> | South Korean National Team, Intel ISEF 2015</li>
+    <li><strong>2014</strong> | Gold Award (2nd Place), Korean Olympiad in Informatics</li>
+  </ul>
+
+  <div class="footer">
+    &copy; 2026 Junha Yang &middot; Last updated: 2026-04-21
+  </div>
+
+  <script>
+    (function () {
+      var btn = document.getElementById('copy-md-btn');
+      var status = document.getElementById('copy-md-status');
+      if (!btn) return;
+
+      btn.addEventListener('click', async function () {
+        status.textContent = ' …';
+        try {
+          var res = await fetch('/original.md', { cache: 'no-cache' });
+          if (!res.ok) throw new Error('fetch failed: ' + res.status);
+          var md = (await res.text()).trim() + '\n';
+          await navigator.clipboard.writeText(md);
+          status.textContent = ' ✓ Copied';
+        } catch (err) {
+          console.error(err);
+          status.textContent = ' ✗ Copy failed';
+        }
+        setTimeout(function () { status.textContent = ''; }, 2000);
+      });
+    })();
+  </script>
+
 </body>
 
 </html>

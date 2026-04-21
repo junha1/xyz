@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Junha Yang</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <style>
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #eeeadf;
+      --ink: #111;
+      --accent: #ff2a00;
+      --display: 'DM Serif Display', Georgia, serif;
+      --text: 'Lora', Georgia, serif;
+    }
+
+    body {
+      font-family: var(--text);
+      background: var(--bg);
+      color: var(--ink);
+      font-size: 14px;
+      line-height: 1.5;
+      -webkit-font-smoothing: antialiased;
+      position: relative;
+    }
+
+    /* grain */
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      opacity: 0.035;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 200px;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    ::selection {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1.5px solid var(--accent);
+      transition: background 0.1s, color 0.1s;
+    }
+
+    a:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    .page {
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 80px 24px 96px;
+      position: relative;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-family: var(--display);
+      font-size: 76px;
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -2.5px;
+      line-height: 0.92;
+      color: var(--ink);
+      position: relative;
+    }
+
+    .hero h1 .ghost {
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(17, 17, 17, 0.08);
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero .rule {
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: var(--ink);
+      margin: 18px 0 14px;
+      position: relative;
+    }
+
+
+    .hero .bio {
+      font-size: 14px;
+      color: rgba(17, 17, 17, 0.5);
+      line-height: 1.65;
+      max-width: 480px;
+    }
+
+    .hero .bio mark {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 1px 5px;
+      font-weight: 600;
+    }
+
+    .hero .stamp {
+      font-family: var(--text);
+      font-size: 10px;
+      color: rgba(17, 17, 17, 0.35);
+      margin-top: 16px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-bar {
+      background: var(--ink);
+      color: var(--bg);
+      font-family: var(--text);
+      font-size: 11px;
+      padding: 12px 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px 18px;
+      position: relative;
+    }
+
+    .contact-bar::before {
+      content: "✦ CONNECT";
+      position: absolute;
+      top: -9px;
+      left: 16px;
+      font-family: var(--text);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--accent);
+      background: var(--bg);
+      padding: 0 6px;
+    }
+
+    .contact-bar a {
+      color: var(--accent);
+      border-bottom: 1px solid rgba(255, 42, 0, 0.3);
+    }
+
+    .contact-bar a:hover {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .contact-bar .sep {
+      color: rgba(238, 234, 223, 0.25);
+    }
+
+    .contact-note {
+      font-size: 12px;
+      color: rgba(17, 17, 17, 0.4);
+      margin-top: 10px;
+      margin-bottom: 56px;
+    }
+
+    .contact-note mark {
+      background: var(--accent);
+      color: var(--bg);
+      padding: 1px 5px;
+      font-weight: 700;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      margin-bottom: 48px;
+      position: relative;
+    }
+
+    .sh {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 14px;
+      font-weight: 400;
+      color: var(--ink);
+      border-top: 2.5px solid var(--ink);
+      padding-top: 8px;
+      margin-bottom: 16px;
+    }
+
+
+    /* year markers */
+    h3 {
+      font-family: var(--display);
+      font-size: 16px;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--ink);
+      margin-top: 24px;
+      margin-bottom: 8px;
+      position: relative;
+      display: inline-block;
+    }
+
+    h3::after {
+      display: none;
+    }
+
+    h3:first-of-type {
+      margin-top: 0;
+    }
+
+    /* ===== ROWS ===== */
+    .r {
+      display: flex;
+      gap: 16px;
+      align-items: baseline;
+      padding: 7px 0;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .r:last-child {
+      border-bottom: none;
+    }
+
+    .r .d {
+      font-family: var(--text);
+      font-size: 11px;
+      color: rgba(17, 17, 17, 0.35);
+      min-width: 74px;
+      flex-shrink: 0;
+    }
+
+    .r .d.sm {
+      min-width: 36px;
+    }
+
+    .r .t {
+      color: var(--ink);
+    }
+
+    .r .t b {
+      font-weight: 700;
+    }
+
+    /* ===== EDUCATION ===== */
+    .edu {
+      border-left: none;
+      padding: 12px 16px;
+      background: rgba(0, 0, 0, 0.03);
+      font-size: 13px;
+      position: relative;
+    }
+
+    .edu .yr {
+      font-family: var(--text);
+      font-size: 10px;
+      color: rgba(17, 17, 17, 0.35);
+    }
+
+    .edu .school {
+      font-family: var(--display);
+      font-size: 18px;
+      font-weight: 400;
+      margin-top: 2px;
+    }
+
+    .edu .school a {
+      color: var(--ink);
+      border-bottom-color: var(--ink);
+    }
+
+    .edu ul {
+      list-style: none;
+      margin-top: 8px;
+    }
+
+    .edu ul li {
+      color: rgba(17, 17, 17, 0.5);
+      padding: 1px 0;
+    }
+
+    .edu ul li::before {
+      content: "— ";
+      font-family: var(--text);
+      font-size: 11px;
+      color: rgba(17, 17, 17, 0.35);
+    }
+
+    /* ===== SKILLS ===== */
+    .skills {
+      font-family: var(--text);
+      font-size: 13px;
+      line-height: 1.8;
+      color: var(--ink);
+    }
+
+    .skills .sub {
+      display: block;
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .skills .sub-label {
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-right: 8px;
+    }
+
+    /* ===== TALKS ===== */
+    .talk {
+      padding: 5px 0;
+      font-size: 13px;
+      line-height: 1.5;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .talk:last-child {
+      border-bottom: none;
+    }
+
+    .talk .pre {
+      color: rgba(17, 17, 17, 0.35);
+      font-size: 12px;
+    }
+
+    .talk-link {
+      font-family: var(--text);
+      font-size: 9px;
+      font-weight: 700;
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      border-bottom: 1.5px solid var(--accent);
+      padding: 1px 6px;
+      margin-left: 6px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      vertical-align: middle;
+    }
+
+    .talk-link:hover {
+      background: var(--accent);
+      color: var(--bg);
+    }
+
+    /* ===== PROJECTS ===== */
+    .proj-list .proj-row {
+      display: flex;
+      gap: 12px;
+      align-items: baseline;
+      padding: 5px 0;
+      font-size: 13px;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.12);
+    }
+
+    .proj-list .proj-row:last-child {
+      border-bottom: none;
+    }
+
+    .proj-list .pn {
+      font-family: var(--text);
+      font-size: 12px;
+      font-weight: 700;
+      min-width: 150px;
+      flex-shrink: 0;
+    }
+
+    .proj-list .pd {
+      color: rgba(17, 17, 17, 0.5);
+    }
+
+    /* ===== MUSIC ===== */
+    .music-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .music-grid .vid {
+      position: relative;
+      display: block;
+      width: 100%;
+      padding-bottom: 56.25%;
+      background: rgba(17, 17, 17, 0.06);
+      overflow: hidden;
+      border: none;
+      border-bottom: none;
+    }
+
+    .music-grid .vid img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .music-grid .vid::after {
+      content: "▶";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.25);
+      transition: background 0.15s;
+    }
+
+    .music-grid .vid:hover::after {
+      background: rgba(255, 42, 0, 0.5);
+    }
+
+    @media (max-width: 600px) {
+      .music-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== COLOPHON ===== */
+    .colophon {
+      margin-top: 56px;
+      background: var(--ink);
+      color: var(--bg);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .colophon .marquee-wrap {
+      overflow: hidden;
+      border-bottom: 1px solid rgba(238, 234, 223, 0.1);
+    }
+
+    .colophon .marquee {
+      display: flex;
+      width: max-content;
+      white-space: nowrap;
+      animation: marquee 20s linear infinite;
+    }
+
+    .colophon .marquee span {
+      font-family: var(--display);
+      font-style: italic;
+      font-size: 48px;
+      line-height: 1.2;
+      padding: 12px 0;
+      color: transparent;
+      -webkit-text-stroke: 1px rgba(238, 234, 223, 0.15);
+      flex-shrink: 0;
+      letter-spacing: -1px;
+    }
+
+    .colophon .marquee span .accent {
+      -webkit-text-stroke-color: var(--accent);
+    }
+
+    @keyframes marquee {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    .colophon .f-body {
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .colophon .f-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .colophon .f-copy {
+      font-family: var(--text);
+      font-size: 10px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    .colophon .f-sub {
+      font-family: var(--text);
+      font-size: 9px;
+      color: rgba(238, 234, 223, 0.4);
+    }
+
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 600px) {
+      .page {
+        padding: 48px 16px 64px;
+      }
+
+      .hero h1 {
+        font-size: 52px;
+        letter-spacing: -1.5px;
+      }
+
+      .hero h1 .ghost {
+        display: none;
+      }
+
+      .r {
+        flex-direction: column;
+        gap: 1px;
+      }
+
+      .proj-list .proj-row {
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .contact-bar {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .skills {
+        font-size: 14px;
+      }
+
+      h3 {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="page">
+
+    <div class="hero">
+      <h1>
+        Junha<br>Yang
+        <span class="ghost" aria-hidden="true">Junha<br>Yang</span>
+      </h1>
+      <span class="rule"></span>
+      <p class="bio">
+        <mark>Software engineer</mark>, team lead, and administrator.
+        Open to any role, domain, or challenge.
+        I embrace rapid technological transformation and challenge conventional paradigms to drive innovation.
+      </p>
+      <div class="stamp">Last edited — 2026.03.15</div>
+    </div>
+
+    <div class="contact-bar">
+      <a href="mailto:junhayang1@gmail.com">junhayang1@gmail.com</a>
+      <span class="sep">/</span>
+      <a href="https://junha1.github.io/">web</a>
+      <span class="sep">/</span>
+      <a href="https://t.me/junha1">telegram</a>
+      <span class="sep">/</span>
+      <a href="https://www.linkedin.com/in/junha-y-5923061b6/">linkedin</a>
+      <span class="sep">/</span>
+      <a href="https://github.com/junha1">github</a>
+    </div>
+    <p class="contact-note">Whoever you are, feel free to reach out. I respond within <mark>48 hours</mark>.</p>
+
+    <section>
+      <div class="sh">career</div>
+      <div class="r">
+        <span class="d">2023–2026</span>
+        <span class="t"><b>CTO and CISO</b>, <a href="https://hyperithm.com">Hyperithm</a></span>
+      </div>
+      <div class="r">
+        <span class="d">2022–2024</span>
+        <span class="t"><b>Founder &amp; Lead Developer</b>, <a href="https://dao.postech.ac.kr">PDAO</a></span>
+      </div>
+      <div class="r">
+        <span class="d">2021–2022</span>
+        <span class="t"><b>Infra Team Head</b>, <a href="https://hyperithm.com">Hyperithm</a></span>
+      </div>
+      <div class="r">
+        <span class="d">2019–2021</span>
+        <span class="t"><b>Software Engineer</b>, <a href="https://kodebox.io/">Kodebox</a></span>
+      </div>
+      <div class="r">
+        <span class="d">2018</span>
+        <span class="t"><b>AI Researcher</b>, <a href="https://www.netmarble.net/">Netmarble</a></span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">school</div>
+      <div class="edu">
+        <span class="yr">2016–2023</span>
+        <div class="school"><a href="https://www.postech.ac.kr/">POSTECH</a></div>
+        <ul>
+          <li>B.S. in Computer Science and Engineering</li>
+          <li>Summa Cum Laude (GPA: 4.0 / 4.3)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">things I care about</div>
+      <div class="skills">
+        <span class="sub"><span class="sub-label">Systems</span>Blockchain · Rust · Consensus · Defensive Security</span>
+        <span class="sub"><span class="sub-label">Strategy</span>Alignment · AI Safety · Game Theory · Theory of Mind</span>
+        <span class="sub"><span class="sub-label">Life</span>Hiring · Euthanasia · Meditation · Music</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">public</div>
+
+      <h3>2026</h3>
+      <div class="talk">
+        [PwC Investment Leadership Forum] Seeing the New World: Crypto &amp; AI<a class="talk-link"
+          href="https://docs.google.com/presentation/d/1UoZ8eXFKDCnQK2VLQwF8B4apy7S-OiJsaMteveWthp8/edit?slide=id.g36bd1584053_0_63#slide=id.g36bd1584053_0_63">↗</a>
+      </div>
+      <div class="talk">
+        CTO Challenges<a class="talk-link" href="https://tech.hyperithm.com/cto-challenges">↗</a>
+      </div>
+
+      <h3>2025</h3>
+      <div class="talk">
+        [SNU Business Alumni] How Technology Changes the World: Blockchain &amp; Decentralization<a class="talk-link"
+          href="https://docs.google.com/presentation/d/1JCS3DpuiXw9pbe1AYBLF9P1GqYuM28fWwCbS2jfDWek/edit?usp=sharing">↗</a>
+      </div>
+
+      <h3>2024</h3>
+      <div class="talk">
+        <span class="pre">Panel —</span> Ethcon Korea 2024<a class="talk-link" href="https://2024.ethcon.kr/">↗</a>
+      </div>
+      <div class="talk">
+        <span class="pre">Speaker —</span> Crypto United Trading Conference<a class="talk-link"
+          href="https://lu.ma/jg1vpimt">↗</a><a class="talk-link"
+          href="https://docs.google.com/presentation/d/1iYd_cXJdAm77zsuI7cNLcnMsIJFRB8_5iISkScp6wh8/edit#slide=id.g2720ced5208_0_0">slides</a>
+      </div>
+
+      <h3>2023</h3>
+      <div class="talk">
+        <span class="pre">Speaker —</span> Web 3.0, Privacy &amp; Legal Review of DAO Operations<a class="talk-link"
+          href="https://event-us.kr/coindeskkorea/event/69558?fbclid=IwAR1W1j0x1tk0yrA96aSZGaJ0oLsbTLoA77hcF8gGL2IpWEvNHMBaUx4Xm0M">↗</a>
+      </div>
+      <div class="talk">
+        <span class="pre">Panel —</span> Deference 2023<a class="talk-link" href="https://www.deference.co.kr/">↗</a>
+      </div>
+      <div class="talk">
+        [PDAO Seminar] DAO &amp; Simperby<a class="talk-link" href="https://youtu.be/dZ8A0Sgq5Q8">↗</a>
+      </div>
+
+      <h3>2022</h3>
+      <div class="talk">
+        PDAO Mainnet Genesis Ceremony<a class="talk-link" href="https://youtu.be/q8DRBNuxXWA">↗</a>
+      </div>
+      <div class="talk">
+        [POSTECH Tech Review] Blockchain &amp; the Decentralized Future<a class="talk-link"
+          href="https://youtu.be/H1TYxoHzwTo">↗</a>
+      </div>
+      <div class="talk">
+        [PDAO Seminar] PoS &amp; BFT<a class="talk-link" href="https://youtu.be/2rgHBIlfI7M">↗</a>
+      </div>
+      <div class="talk">
+        [PDAO Seminar] Intro to Blockchain — Part 2<a class="talk-link" href="https://youtu.be/gNVTR5sH-VQ">↗</a>
+      </div>
+      <div class="talk">
+        [PDAO Seminar] Intro to Blockchain — Part 1<a class="talk-link" href="https://youtu.be/4Ykkwo-GPCg">↗</a>
+      </div>
+
+      <h3>2020</h3>
+      <div class="talk">
+        CodeChain Foundry<a class="talk-link" href="https://medium.com/codechain/codechain-foundry-8c6df5e08c82">↗</a>
+      </div>
+      <div class="talk">
+        remote-trait-object: CodeChain Foundry's core inter-module communication systems<a class="talk-link"
+          href="https://medium.com/codechain/remote-trait-object-one-of-codechain-foundrys-core-inter-module-communication-systems-66879938b855">↗</a>
+      </div>
+      <div class="talk">
+        CodeChain Foundry ICS Implementation<a class="talk-link"
+          href="https://medium.com/codechain/foundry-ics-poc-proof-of-concept-implementation-c92a8b4757da">↗</a>
+      </div>
+      <div class="talk">
+        Blockchain Light Client<a class="talk-link"
+          href="https://medium.com/codechain/blockchain-light-client-1171dfa1269a">↗</a>
+      </div>
+      <div class="talk">
+        IBC and ICS<a class="talk-link" href="https://medium.com/codechain/ibc-and-ics-116e636e57aa">↗</a>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">code</div>
+      <div class="proj-list">
+        <div class="proj-row">
+          <span class="pn"><a href="https://github.com/postech-dao/simperby">Simperby</a></span>
+          <span class="pd">A blockchain engine for DAOs.</span>
+        </div>
+        <div class="proj-row">
+          <span class="pn"><a href="https://github.com/CodeChain-io/foundry">CodeChain Foundry</a></span>
+          <span class="pd">Blockchain engine on Tendermint + Rust, inspired by Cosmos SDK.</span>
+        </div>
+        <div class="proj-row">
+          <span class="pn"><a href="https://github.com/CodeChain-io/remote-trait-object">remote-trait-object</a></span>
+          <span class="pd">Rust remote method invocation via trait objects.</span>
+        </div>
+        <div class="proj-row">
+          <span class="pn"><a href="https://github.com/rsbm/fere">fere</a></span>
+          <span class="pd">Realtime 3D rendering engine on OpenGL.</span>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">etc</div>
+      <div class="r">
+        <span class="d sm">2023</span>
+        <span class="t">Lead mentor, <a href="https://www.contribution.ac/">OSSCA 2023</a> — Ministry of Science and
+          ICT</span>
+      </div>
+      <div class="r">
+        <span class="d sm">2022</span>
+        <span class="t">Park Tae-joon Alumni Scholarship, POSTECHIAN Foundation</span>
+      </div>
+      <div class="r">
+        <span class="d sm">2020</span>
+        <span class="t">Contributor, Cosmos IBC protocol specification</span>
+      </div>
+      <div class="r">
+        <span class="d sm">2017</span>
+        <span class="t">President, POSTECH Orchestra Club 'Hanulim'</span>
+      </div>
+      <div class="r">
+        <span class="d sm">2015</span>
+        <span class="t">South Korean National Team, Intel ISEF 2015</span>
+      </div>
+      <div class="r">
+        <span class="d sm">2014</span>
+        <span class="t">Gold Award (2nd Place), Korean Olympiad in Informatics</span>
+      </div>
+    </section>
+
+    <section>
+      <div class="sh">my taste</div>
+      <div class="music-grid">
+        <a class="vid" href="https://www.youtube.com/watch?v=WtORTuLJw7o" target="_blank"><img src="https://img.youtube.com/vi/WtORTuLJw7o/hqdefault.jpg" alt=""></a>
+        <a class="vid" href="https://www.youtube.com/watch?v=LhUWJ6JGUrg" target="_blank"><img src="https://img.youtube.com/vi/LhUWJ6JGUrg/hqdefault.jpg" alt=""></a>
+        <a class="vid" href="https://www.youtube.com/watch?v=D2E86Z6nteg" target="_blank"><img src="https://img.youtube.com/vi/D2E86Z6nteg/hqdefault.jpg" alt=""></a>
+        <a class="vid" href="https://www.youtube.com/watch?v=UvtYEdYjkJM" target="_blank"><img src="https://img.youtube.com/vi/UvtYEdYjkJM/hqdefault.jpg" alt=""></a>
+      </div>
+    </section>
+
+    <div class="colophon">
+      <div class="marquee-wrap">
+        <div class="marquee">
+          <span>Junha Yang <span class="accent">✦</span> Seoul, KR <span class="accent">✦</span> Everything is an
+            illusion <span class="accent">✦</span> Junha Yang <span class="accent">✦</span> Seoul, KR <span
+              class="accent">✦</span> Everything is an illusion <span class="accent">✦</span>&nbsp;</span><span>Junha
+            Yang <span class="accent">✦</span> Seoul, KR <span class="accent">✦</span> Everything is an illusion <span
+              class="accent">✦</span> Junha Yang <span class="accent">✦</span> Seoul, KR <span class="accent">✦</span>
+            Everything is an illusion <span class="accent">✦</span>&nbsp;</span>
+        </div>
+      </div>
+      <div class="f-body">
+        <div class="f-left">
+          <span class="f-copy">&copy; 2026 Junha Yang</span>
+          <span class="f-sub">Everything is an illusion</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+</html>
