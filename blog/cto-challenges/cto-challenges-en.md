@@ -10,7 +10,7 @@ authorImage: "/images/cto-challenges/jh.jpeg"
 authorBio: "Hyperithm - Former CTO/CISO (2023-2026)"
 ---
 
-I, [Junha Yang](https://junha1.github.io/), served as CTO/CISO of Hyperithm for 2 years and 7 months, from 2023 to 2026
+I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years and 7 months, from 2023 to 2026
 - Hyperithm is a 60-person crypto trading firm, and I ran a 10-20 person engineering org within it
 - Hyperithm has a culture where people leaving the company wrap up their work in a blog post on their way out
 - Funny enough — this culture exists because I proposed it, and now my turn has already come
