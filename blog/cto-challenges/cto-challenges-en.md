@@ -13,19 +13,19 @@ authorBio: "Hyperithm - Former CTO/CISO (2023-2026)"
 I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years and 7 months, from 2023 to 2026
 - Hyperithm is a 60-person crypto trading firm, and I ran a 10-20 person engineering org within it
 - Hyperithm has a culture where people leaving the company wrap up their work in a blog post on their way out
-- Funny enough — this culture exists because I proposed it, and now my turn has already come
+- Funny enough, this culture exists because I proposed it, and now my turn has already come
 - I'll honestly share the various challenges I faced as CTO during my tenure, and the insights I was able to extract from them
 
 # 1\. Tech Leading
 
 ## Technical Decision-Making
 
-- A CTO's life is a continuous stream of answerless choices — tech stacks, interface decisions, architecture design, and so on
+- A CTO's life is a continuous stream of answerless choices: tech stacks, interface decisions, architecture design, and so on
 - These technical decisions snowball much more than you'd think. An organization can end up spending half a year flailing and throwing away the entire codebase
-  - I've lived through this too — I over-abstracted the network system talking to crypto exchanges, and the man-months that evaporated in that process ran into the double digits
+  - I've lived through this too; I over-abstracted the network system talking to crypto exchanges, and the man-months that evaporated in that process ran into the double digits
 - Infrastructure especially has a huge impact on cost, security, lock-in, productivity, and so on, so the damage is bigger than simply picking the wrong code structure or library, and changing it late is hell
-  - Even more so in the AI era. The bottlenecks I hit most when using coding agents were infrastructure-related — subscriptions, deployment, auth, connectivity, observability, etc.
-  - Early on I made a wrong call on the auth layer and RPC protocol, and it's become truly nasty legacy today — I still occasionally hear grumbling(?) from team members about it
+  - Even more so in the AI era. The bottlenecks I hit most when using coding agents were infrastructure-related: subscriptions, deployment, auth, connectivity, observability, etc.
+  - Early on I made a wrong call on the auth layer and RPC protocol, and it's become truly nasty legacy today, and I still occasionally hear grumbling(?) from team members about it
 - The most common decision-paralysis pattern was having to pick one of: 1) use open source, 2) use SaaS, 3) build it ourselves
   - I chose 3 way too often. I was an inexperienced CTO at the time, so I had an instinctive fear of stacks I hadn't personally used, and I think I ended up choosing from-scratch because it *seemed* predictable and controllable (of course, it was anything but)
 
@@ -75,14 +75,14 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
   - The pattern I saw most was the maddening combo of "another team making ad-hoc requests" meeting "our team solving them ad-hoc"
   - When you collected the scattered requests coming in from other teams, they reduced to something like "please build us a new database with a reasonably extensible schema, plus a CRUD service"
     - But our team, which had been accommodating them piecemeal without context, ended up saddled with an unidentifiable patchwork API
-- As the org head, the CTO should invest heavily in understanding other teams, and through "work only they can do" — i.e., high-level cross-team coordination — keep overall company productivity up
+- As the org head, the CTO should invest heavily in understanding other teams, and through "work only they can do" (i.e., high-level cross-team coordination), keep overall company productivity up
 - Doing the detailed day-to-day task management within the team personally is probably only possible when the team is 6 or fewer
 
 ## Cheetahs and Eagles
 
 - IC engineers and middle managers fundamentally immerse in a "cheetah's-eye view," and meanwhile the CTO has to use an "eagle's-eye view" to uncover opportunities the team didn't think of
   - What middle managers can do well is raise the quality and efficiency of execution
-  - The CTO has to think critically at a meta level — is this execution actually valuable right now, is it fake work, should we just stop it and do something else entirely?
+  - The CTO has to think critically at a meta level: is this execution actually valuable right now, is it fake work, should we just stop it and do something else entirely?
 - Big directional shifts generate big sunk costs. Bearing sunk costs ruthlessly and driving toward the highest expected value is the CTO's job
   - Middle managers are the ones who create maturity within inertia and path-dependency. The CTO has to focus on "what middle managers can't do"
   - At Hyperithm we used the term "abandonment" (유기) as a meme. We'd "abandon" projects, "abandon" tasks...
@@ -91,7 +91,7 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
 - Even when you decide that staying the course is right, you have to temperature-check whether the team is bought into that direction
   - Early in my tenure, the comment I heard most often in 1on1s was, "I wish I could really feel whether the engineering I'm doing actually has impact, and how it's being used"
   - A cheetah's speed drops sharply the moment it looks back. The CTO has to make it so the cheetah can stay immersed without looking back
-  - As a simple example, I'd remember light compliments that came up casually in meetings with other teams and pass them along — "So-and-so from another team mentioned today that the feature you built is really great"
+  - As a simple example, I'd remember light compliments that came up casually in meetings with other teams and pass them along, saying things like "So-and-so from another team mentioned today that the feature you built is really great"
     - Even this trivial motivation helped ICs' immersion a lot
 
 <figure style="text-align:center; margin:auto;">
@@ -117,12 +117,12 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
 
 - You should do 1on1s with key team members at least once a quarter
   - "Three months" is like a magic base unit in HR
-  - Because to newly hire for a position, the company needs roughly 3 months total — 1 month of sourcing → 1 month of evaluation and negotiation → 1 month of handover and waiting to start
+  - Because to newly hire for a position, the company needs roughly 3 months total: 1 month of sourcing → 1 month of evaluation and negotiation → 1 month of handover and waiting to start
   - So it's best to know the resignation risk of key personnel at least three months in advance, which is why you have to do 1on1s every three months
 - In my experience, the biggest function of a 1on1 is drawing out "problem awareness"
-  - Serious doubts about the org, thoughts about quitting, ongoing stress — these aren't easily confessed in day-to-day settings
+  - Serious doubts about the org, thoughts about quitting, ongoing stress: these aren't easily confessed in day-to-day settings
   - Curiously, many problems could be resolved on the spot right there
-    - Just offering perspectives and information the team member probably didn't know or hadn't considered — "How about a pilot stint in Team X after this project wraps up?" or "You probably didn't know, but issue Y blew up in the team next door, which is why this task got thrown at you on short notice" — could provide significant relief
+    - Just offering perspectives and information the team member probably didn't know or hadn't considered (such as "How about a pilot stint in Team X after this project wraps up?" or "You probably didn't know, but issue Y blew up in the team next door, which is why this task got thrown at you on short notice") could provide significant relief
   - What's worse than a "problem" is not even being aware whether there is a problem, or leaving someone to wrongly perceive something non-problematic as a problem
   - A 1on1 is also practically the only chance someone has to voice feedback about the company or leadership, beyond just the CTO or engineering org
     - To build the trust that "your message will be delivered to leadership unfiltered (if you want)," I'd hand the 1on1 notes to the team member, give them a chance to freely edit, and then share them with leadership as-is
@@ -134,17 +134,17 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
 - The higher up you are, the fewer chances for metacognition, and the CTO too has to receive feedback
   - In every 1on1, I made it a rule to mandatorily solicit "opinions about me," and regardless of what those opinions were, I stuck to the principle of sharing them with leadership as-is, as described above
   - To team members who answered "I think everything's fine with you," I'd persistently press(?) with "there's no way that's true"
-  - At one point I tried receiving feedback via a fully anonymous Google Form — got a dismal 5% response rate, but even those few responses were enough to shift my perspective
+  - At one point I tried receiving feedback via a fully anonymous Google Form. It got a dismal 5% response rate, but even those few responses were enough to shift my perspective
 
 ## Engineering Org Branding
 
 - Someone short on verbal dexterity or averse to networking might not fit the CTO role. There are limits to talent sourcing
-  - At minimum, you have to write decent LinkedIn posts. You need PR ability to convey an image of the company's engineering org — short, strong, and provocative
-  - In my case, to meet quality developers, I tried a pretty wide range of things — university career fairs, coding competition sponsorships, LinkedIn cold messages, alumni events, industry conferences, open source projects, etc.
+  - At minimum, you have to write decent LinkedIn posts. You need PR ability to convey an image of the company's engineering org: short, strong, and provocative
+  - In my case, to meet quality developers, I tried a pretty wide range of things: university career fairs, coding competition sponsorships, LinkedIn cold messages, alumni events, industry conferences, open source projects, etc.
   - When you realize your statements in those venues determine the company's image and the likelihood of future applications, improvisational social/communication ability inevitably becomes crucial
 - The ultimate goal of these activities is probably better viewed as "branding" rather than outbound sourcing per se
   - In my experience, 80% of great hires were inbound (there was even a case where I fortunately spotted a lead engineer in the spam folder)
-  - It's like B2B sales. If you want to maintain high talent density, the end state isn't continuing to spend time on outbound — it's making branding and inbound happen
+  - It's like B2B sales. If you want to maintain high talent density, the end state isn't continuing to spend time on outbound; it's making branding and inbound happen
 
 ## Hiring Developers
 
@@ -152,10 +152,10 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
   - Even from the referee's perspective, they're more likely to respond honestly and in detail when the other end is a CTO rather than someone from HR
   - Even a pre-arranged referee, hit with a sudden question like "What was the most insightful code review A ever gave you?", has no choice but to pause with "hmm...", think, and tell whatever comes to mind. Specific episodes like that can't be fabricated on the spot
   - For senior engineers, with their consent, I did phone reference checks with 6–7 people at 30 minutes each. In my experience, a reference check held information value similar to, or slightly more than, the combined value of resume review, interviews, and take-home evaluations
-- For a true ace, the CTO has to run out personally in stockinged feet. You have to pitch the company's vision and charm starting from the coffee chat stage. Hiring ace engineers is most effective when it's the CTO who steps up — not HR, not the CEO, not a tech lead
+- For a true ace, the CTO has to run out personally in stockinged feet. You have to pitch the company's vision and charm starting from the coffee chat stage. Hiring ace engineers is most effective when it's the CTO who steps up, not HR, not the CEO, not a tech lead
   - A recruiting pitch from an unknown company is hard to take seriously unless it comes from a "decision maker" and "future adjacent org head"
     - Because only someone who can take responsibility on the spot for how much information and which cards to open can lead an appealing conversation
-  - I'd often pull out my phone right there and show the company's Slack channels — the idea being, see the company culture and vibe firsthand and judge for yourself
+  - I'd often pull out my phone right there and show the company's Slack channels, the idea being to let them see the company culture and vibe firsthand and judge for themselves
   - For the last senior engineer I hired before leaving the company, the entire process of contact/intro/evaluation/reference check/offer/negotiation took a year, and I personally handled all of it
 
 <figure style="text-align:center; margin:auto;">
@@ -167,7 +167,7 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
 
 ## Tech PR
 
-- Making the performance and contributions of the engineering org — especially infrastructure orgs far from the product — viscerally convincing to leadership is not easy
+- Making the performance and contributions of the engineering org (especially infrastructure orgs far from the product) viscerally convincing to leadership is not easy
 - Once again, "case-based" communication is what matters. Generally speaking, top-down explanations inevitably end up being either 1) too superficial or 2) too technical from the perspective of someone without technical understanding
   - For example, every quarterly townhall, my engineering org would aggregate and share numbers like the count of logical business logic units (trading strategies) hosted on the company's infrastructure, or the number of wallets being managed/monitored
   - These may still be abstract numbers to leadership, but even getting them to understand that those numbers correspond to some business concept and are showing some growth trend over time was enough to elicit at least a "weak nod-nod"
@@ -188,11 +188,11 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
   - This kind of narrative is good as a motivational rallying cry, but it also got used frequently in daily decision-making
     - For example, when ICs were agonizing over high-level ↔ low-level for an interface, we generally chose the latter consistently
     - Based on thinking like "shouldn't we aim for a configurable platform instead of building complex business logic handlers?"
-  - When this pattern recurs, a nice property emerges — from other teams' perspectives, the dev org becomes "predictable"
+  - When this pattern recurs, a nice property emerges: from other teams' perspectives, the dev org becomes "predictable"
     - After handing us a new requirement, they can form reasonable expectations or predictions about "how are they going to finish this in 3 weeks?", which reduces communication cost
     - Conversely, from the dev team's side, they can anticipate that if they slip up and bring back a gadget over-optimized for a specific piece of business logic, there's feedback waiting in the form of "wait, this isn't supposed to be our dev org's role, is it?"
 - Cheetahs, when stuck in answerless dilemmas, end up rummaging through the latest version of "our dev org's goals" that the CTO wrote down and using it as grounds for their decision
-  - You should know that the vision the CTO sets isn't just an abstract slogan parked on the wiki's front page — it becomes an impactful source cited in ICs' daily decisions
+  - You should know that the vision the CTO sets isn't just an abstract slogan parked on the wiki's front page; it becomes an impactful source cited in ICs' daily decisions
   - I'd periodically hear feedback from mid-level leads like, "the org's dev direction feels like it's getting outdated," and I treated it as a serious crisis-detection indicator
 
 ## Organizational Metacognition
@@ -211,9 +211,9 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
   - The word "vibe coding" hadn't even been coined yet, but at the time I was gripped by a huge FOMO and started studying the latest coding agents by digging through overseas communities
   - I'd ask every developer I met outside "do you know what a coding agent is?", and test their reactions by explaining the new ideas we were trying in the org
   - I also tried introducing a RAG solution connected to our internal knowledge base, cold-contacting the sales teams of the hottest Silicon Valley companies at the time to set up intro calls
-    - In early 2025, RAG solution companies were so unbelievably busy that even a customer like me, willing to pay to use the product, couldn't get a reply — let alone a call — until getting a referral from an acquaintance
+    - In early 2025, RAG solution companies were so unbelievably busy that even a customer like me, willing to pay to use the product, couldn't get a reply (let alone a call) until getting a referral from an acquaintance
     - Caught in FOMO, I really wanted to find out other companies' AI adoption status, so I laboriously dug up a mutual and barely managed to land a call
-    - Ultimately, the reason I did all these things was probably the sense of crisis — "is our org possibly in a Galapagos state?"
+    - Ultimately, the reason I did all these things was probably the sense of crisis: "is our org possibly in a Galapagos state?"
   - Thanks to these efforts at external exploration, Hyperithm was one of the early adopters in Korea to attempt org-level vibe coding fairly quickly, and I believe we still have high AI literacy today
 
 <figure style="text-align:center; margin:auto;">
@@ -224,11 +224,11 @@ I, [Junha Yang](https://junha.xyz/), served as CTO/CISO of Hyperithm for 2 years
 # In Closing
 
 Fortunately, on my way out of Hyperithm, I was able to hire [an excellent successor CTO](https://www.linkedin.com/in/junho-jang-326918132/)
-- Unusually, I coexisted with the successor at the company for half a year — a rare opportunity to personally observe, over a long period, the process of a new CTO taking over an existing org in a new way
+- Unusually, I coexisted with the successor at the company for half a year, which was a rare opportunity to personally observe, over a long period, the process of a new CTO taking over an existing org in a new way
   - This process was a dense period of self-reflection and self-objectification for me, which is also why I'm able to write a post like this
 - When I talked with the successor about the various challenges described above, sure enough, there was deep common ground
 
-Hyperithm is such a company — with a peculiar domain and human composition — that honestly I'm not sure whether the experience here would transfer elsewhere
+Hyperithm is such a company, with a peculiar domain and human composition, that honestly I'm not sure whether the experience here would transfer elsewhere
 - Paradoxically, to actually practice the "case-based" approach I emphasized several times in this post, I'm still an inexperienced novice CTO, so this post ends up being based on experience at a single company
 - On top of that, since we're now in the great AI era, I expect the standard shape and optimal solution for dev orgs to change enormously in the near future
 - Even so, I hope at least a few of the core principles here were worth reading as lessons
