@@ -211,12 +211,14 @@
       color: #333;
     }
 
-    .contact-list {
+    .contact-list,
+    .specialty-list {
       column-count: 2;
       column-gap: 24px;
     }
 
-    .contact-list li {
+    .contact-list li,
+    .specialty-list li {
       break-inside: avoid;
     }
 
@@ -239,13 +241,14 @@
     }
 
     @media (max-width: 500px) {
-      .contact-list {
+      .contact-list,
+      .specialty-list {
         column-count: 1;
       }
     }
 
     @page {
-      margin: 1.5cm;
+      margin: 1.1cm 1.3cm;
     }
 
     @media print {
@@ -253,8 +256,8 @@
         max-width: none;
         margin: 0;
         padding: 0;
-        font-size: 11pt;
-        line-height: 1.4;
+        font-size: 9.7pt;
+        line-height: 1.28;
       }
 
       a,
@@ -269,18 +272,73 @@
         text-decoration: underline;
       }
 
+      h1 {
+        font-size: 19pt;
+        padding-bottom: 3px;
+        margin-bottom: 4px;
+      }
+
+      .tagline {
+        margin-bottom: 6px;
+      }
+
       h2 {
+        font-size: 11.5pt;
+        margin-top: 10px;
+        margin-bottom: 5px;
+        padding: 2px 6px;
         page-break-after: avoid;
       }
 
       h3 {
+        font-size: 9.7pt;
+        margin-top: 7px;
+        margin-bottom: 2px;
         page-break-after: avoid;
       }
 
-      .career-block,
-      li,
+      p,
+      li {
+        font-size: 9.7pt;
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+
       ul {
+        margin: 3px 0 5px 0;
+      }
+
+      li {
+        margin-bottom: 1.5px;
         page-break-inside: avoid;
+      }
+
+      hr {
+        margin: 7px 0;
+      }
+
+      .intro {
+        padding: 6px 10px;
+        margin-bottom: 8px;
+      }
+
+      .intro p {
+        margin-bottom: 5px;
+      }
+
+      .career-block {
+        border-left-width: 2px;
+        padding-left: 8px;
+        margin-bottom: 8px;
+      }
+
+      .career-block p {
+        margin: 4px 0 2px 0;
+      }
+
+      .talks-list {
+        row-gap: 1px;
+        margin: 3px 0 5px 0;
       }
 
       .nav,
@@ -289,6 +347,8 @@
       }
 
       .footer {
+        margin-top: 12px;
+        padding-top: 5px;
         page-break-before: avoid;
       }
     }
@@ -309,7 +369,7 @@
   </div>
 
   <h1>Junha Yang</h1>
-  <p class="tagline">Systems Engineer / CTO / CISO with frontline DPRK threat experience</p>
+  <p class="tagline">Systems Engineer / CTO / CISO with frontline DPRK threat-response experience</p>
 
   <div class="nav">
     [ <a href="#contact">Contact</a> |
@@ -328,14 +388,14 @@
     <ul>
       <li>Made security decisions as engineering decisions: architecture, controls, infra, process, with constant
         trade-offs between shipping speed and risk, and immediate financial consequences for every mistake.</li>
-      <li>Drove company-wide adoption of AI coding agents in early 2024, before Claude Code was released; built secretless
+      <li>Drove company-wide adoption of AI coding agents in late 2024, before Claude Code was released; built secretless
         infrastructure across the organization as the baseline for agent security.</li>
     </ul>
   </div>
 
   <h2 id="contact">&raquo; Contact</h2>
   <ul class="contact-list">
-    <li>Email: <a href="mailto:junhayang1@gmail.com"><code>junhayang1@gmail.com</code></a></li>
+    <li>Email: <a href="mailto:junhayang1@gmail.com">junhayang1@gmail.com</a></li>
     <li>Homepage: <a href="https://junha.xyz/">https://junha.xyz/</a></li>
     <li>Telegram: <a href="https://t.me/junha1">@junha1</a></li>
     <li>LinkedIn: <a href="https://www.linkedin.com/in/junha-y-5923061b6/">Junha Yang</a></li>
@@ -345,9 +405,9 @@
   <hr>
 
   <h2 id="specialty">&raquo; Specialty</h2>
-  <ul>
+  <ul class="specialty-list">
     <li>Rust</li>
-    <li>Consensus Algorithm</li>
+    <li>Consensus Algorithms</li>
     <li>Defensive Security</li>
     <li>Crypto Custody</li>
     <li>System Programming</li>
@@ -365,29 +425,29 @@
         wallets/exchange accounts behind them), and personally owned SecOps day-to-day.</li>
       <li>Designed and operated the full security stack greenfield: MPC wallet and custody architecture, transaction
         filtering, EDR, enterprise browser, IAM, password manager, DLP, MDM, CNAPP, VPN, and physical security.</li>
-      <li>Led 3 ISMS (Korean equivalent of ISO 27001) certification cycles as principal owner; maintained direct working relationship with Korea's
+      <li>Operated MPC signing and proof-of-reserves on AWS Nitro Enclaves with attested HTTPS execution.</li>
+      <li>Led 3 ISMS (Korean equivalent of ISO 27001) certification cycles as principal owner; maintained a direct working relationship with Korea's
         financial regulator (FSC/FSS) on audits and ongoing license obligations.</li>
-      <li>Maintained an APT-aware security posture under active nation-state targeting; zero breaches during tenure.
-      </li>
+      <li>Sustained an APT-aware security posture under active nation-state targeting; zero breaches during tenure.</li>
     </ul>
     <p><em>Engineering leadership (CTO)</em></p>
     <ul>
       <li>Led a 15-person engineering team; owned hiring, architecture, and infrastructure operations end-to-end.</li>
       <li>Designed and operated a cloud platform hosting 100+ trading strategies with strong isolation, reliability, and
-        deploy safety guarantees.</li>
-      <li>Operated low-latency network infrastructure for high-frequency trading.</li>
+        deployment safety guarantees.</li>
+      <li>Maintained low-latency network infrastructure for high-frequency trading.</li>
       <li>Ran platform engineering with trader productivity as an explicit KPI.</li>
-      <li>Embedded AI coding agents into daily engineering practice across the org; built the secretless infrastructure
-        that made agent-augmented workflows safe under live adversarial pressure.</li>
+      <li>Embedded AI coding agents into daily engineering practice across the org; designed secretless workflows that
+        kept agent automation safe under live adversarial pressure.</li>
     </ul>
   </div>
 
   <div class="career-block">
     <h3>2022&ndash;Present | Founder / Advisor, <a href="https://dao.postech.ac.kr/">PDAO</a> (non-profit open-source DAO infrastructure community)</h3>
     <ul>
-      <li>Founded and led through 2023, then stepped back to an advisory role to complete degree. Community remains
+      <li>Founded and led through 2023, then stepped back to an advisory role to complete the degree. Community remains
         active (50+ core contributors at peak, 400+ members).</li>
-      <li>Developed and deployed Simperby, a trustless governance protocol for DAOs.</li>
+      <li>Developed and deployed <a href="https://github.com/postech-dao/simperby">Simperby</a>, a trustless governance protocol for DAOs.</li>
       <li>Selected as an official open-source project by Korea's Ministry of Science and ICT (OSSCA 2023, Open Source Software Contribution Academy).</li>
       <li>Organized 10+ offline meetups and networking events.</li>
     </ul>
@@ -405,8 +465,9 @@
     <h3>2019&ndash;2021 | Software Engineer, <a href="https://zuzu.network/">Kodebox</a> (Upbit subsidiary)</h3>
     <ul>
       <li>Research and development on blockchain consensus algorithms.</li>
-      <li>Core maintainer of an open-source Rust blockchain project.</li>
+      <li>Core maintainer of <a href="https://github.com/CodeChain-io/foundry">CodeChain Foundry</a>, an open-source Rust blockchain engine.</li>
       <li>Designed and implemented a trustless cross-chain communication protocol.</li>
+      <li>Delivered a blockchain-based system to the Busan Waterworks Authority and led the deployment through the National Intelligence Service (NIS) security audit.</li>
     </ul>
   </div>
 
@@ -432,8 +493,7 @@
 
   <h2 id="projects">&raquo; Selected Projects</h2>
   <ul>
-    <li><strong><a href="https://github.com/postech-dao/simperby">Simperby</a>:</strong> A blockchain engine for DAOs.
-    </li>
+    <li><strong><a href="https://github.com/postech-dao/simperby">Simperby</a>:</strong> A blockchain engine for DAOs.</li>
     <li><strong><a href="https://github.com/CodeChain-io/foundry">CodeChain Foundry</a>:</strong> Blockchain engine on
       Tendermint + Rust, inspired by Cosmos SDK.</li>
     <li><strong><a href="https://github.com/CodeChain-io/remote-trait-object">remote-trait-object</a>:</strong> Rust
@@ -490,7 +550,7 @@
   </ul>
 
   <div class="footer">
-    &copy; 2026 Junha Yang &middot; Last updated: 2026-04-21
+    &copy; 2026 Junha Yang &middot; Last updated: 2026-06-08
   </div>
 
   <script>
